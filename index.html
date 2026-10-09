@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<!-- type="module" lets home.js import from data.js. Modules always wait for the HTML to load first. -->
+<script type="module" src="js/home.js"></script>
 </head>
 <body>
 
@@ -36,16 +38,16 @@
       <a href="our-standards.html" class="more-link hero-link">How we review →</a>
     </div>
 
-    <!-- FIXME: update the counts as you publish -->
+    <!-- The [0]s are filled in from reviews.json by home.js -->
     <figure class="receipt" aria-label="Tab &amp; Tip running totals, printed as a ticket">
       <div class="center" style="letter-spacing: 0.12em">TAB &amp; TIP</div>
       <div class="center small">Chattanooga, TN</div>
       <hr>
       <div class="line small"><span>Running total</span><span>Party of 2</span></div>
       <hr>
-      <div class="line"><span>Restaurants reviewed</span><span>[0]</span></div>
-      <div class="line"><span>Meals paid for</span><span>[0]</span></div>
-      <div class="line"><span>Second visits</span><span>[0]</span></div>
+      <div class="line"><span>Restaurants reviewed</span><span id="total-restaurants">0</span></div>
+      <div class="line"><span>Meals paid for</span><span id="total-meals">0</span></div>
+      <div class="line"><span>Second visits</span><span id="total-second">0</span></div>
       <div class="line"><span>Comps accepted</span><span>0</span></div>
       <hr>
       <div class="line total"><span>From restaurants</span><span>$0.00</span></div>
@@ -59,17 +61,8 @@
       <div class="section-title">
         <h2 class="display h2" id="categories-title">What are you hungry for?</h2>
       </div>
-      <!-- FIXME: adjust to the categories you'll actually review; the ?cuisine= value must match reviews.html -->
-      <ul class="tile-grid" aria-labelledby="categories-title">
-        <li><a href="reviews.html?cuisine=tacos" class="tile tile-dark"><span class="tile-name">Tacos</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=burgers" class="tile tile-dark"><span class="tile-name">Burgers</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=pizza" class="tile tile-dark"><span class="tile-name">Pizza</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=bbq" class="tile tile-dark"><span class="tile-name">BBQ</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=pasta" class="tile tile-dark"><span class="tile-name">Pasta</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=noodles" class="tile tile-dark"><span class="tile-name">Noodles</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=fried-chicken" class="tile tile-dark"><span class="tile-name">Fried chicken</span><span class="tile-count">[0] reviews</span></a></li>
-        <li><a href="reviews.html?cuisine=other" class="tile tile-dark"><span class="tile-name">Other</span><span class="tile-count">[0] reviews</span></a></li>
-      </ul>
+      <!-- Tiles are built by home.js from the CUISINES list in js/data.js -->
+      <ul class="tile-grid" id="cuisine-tiles" aria-labelledby="categories-title"></ul>
     </div>
   </section>
 
@@ -78,17 +71,8 @@
     <div class="section-title">
       <h2 class="display h2" id="hoods-title">Or by neighborhood</h2>
     </div>
-    <!-- FIXME: the ?hood= value must match reviews.html -->
-    <ul class="tile-grid">
-      <li><a href="reviews.html?hood=downtown" class="tile"><span class="tile-name">Downtown</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=southside" class="tile"><span class="tile-name">Southside</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=north-shore" class="tile"><span class="tile-name">North Shore</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=st-elmo" class="tile"><span class="tile-name">St. Elmo</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=red-bank-hixson" class="tile"><span class="tile-name">Red Bank / Hixson</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=signal-mountain" class="tile"><span class="tile-name">Signal Mountain</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=brainerd-hamilton-place" class="tile"><span class="tile-name">Brainerd / Hamilton Place</span><span class="tile-count">[0] reviews</span></a></li>
-      <li><a href="reviews.html?hood=east-ridge" class="tile"><span class="tile-name">East Ridge</span><span class="tile-count">[0] reviews</span></a></li>
-    </ul>
+    <!-- Tiles are built by home.js from the HOODS list in js/data.js -->
+    <ul class="tile-grid" id="hood-tiles" aria-labelledby="hoods-title"></ul>
   </section>
 
   <!-- RECENT REVIEWS (bottom of the page) -->
@@ -98,35 +82,36 @@
         <h2 class="display h2" id="reviews-title">Recent reviews</h2>
         <a href="reviews.html" class="more-link">All reviews →</a>
       </div>
-      <!-- FIXME: your three newest reviews -->
-      <ul class="review-grid">
-        <li class="review-card">
-          <a href="#" class="photo">[Photo]</a>
-          <div class="review-card-body">
-            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
-            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm">6.4</div></div>
-            <p class="review-blurb">[One-line verdict.]</p>
-          </div>
-        </li>
-        <li class="review-card">
-          <a href="#" class="photo">[Photo]</a>
-          <div class="review-card-body">
-            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
-            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm high">8.2</div></div>
-            <p class="review-blurb">[One-line verdict.]</p>
-          </div>
-        </li>
-        <li class="review-card">
-          <a href="#" class="photo">[Photo]</a>
-          <div class="review-card-body">
-            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
-            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm">3.9</div></div>
-            <p class="review-blurb">[One-line verdict.]</p>
-          </div>
-        </li>
-      </ul>
+
+      <!-- Browsers block module scripts on pages opened by double-clicking (file://).
+           This small regular script still runs there, and explains what to do. -->
+      <p class="empty" id="file-warning" hidden>This page needs a local server to load reviews. See "Running it locally" in README.md.</p>
+      <script>
+        if (location.protocol === 'file:') document.getElementById('file-warning').hidden = false;
+      </script>
+
+      <!-- The three newest published reviews, filled in by home.js -->
+      <ul class="review-grid" id="recent-grid"></ul>
     </div>
   </section>
+
+  <!-- TEMPLATES
+       A <template> is never shown on its own. The scripts copy it and fill in
+       the blanks for each tile and card, so the markup stays here in the HTML. -->
+  <template id="tile-template">
+    <li><a class="tile"><span class="tile-name"></span><span class="tile-count"></span></a></li>
+  </template>
+
+  <template id="card-template">
+    <li class="review-card">
+      <a class="photo">[Photo]</a>
+      <div class="review-card-body">
+        <p class="kicker muted card-kicker"></p>
+        <div class="card-title"><h3><a class="card-name"></a></h3><div class="score score-sm"></div></div>
+        <p class="review-blurb"></p>
+      </div>
+    </li>
+  </template>
 
 </main>
 

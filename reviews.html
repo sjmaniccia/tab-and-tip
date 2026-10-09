@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<!-- defer = run the script after the HTML has loaded, so the cards exist when it looks for them -->
-<script src="reviews.js" defer></script>
+<!-- type="module" lets reviews.js import from data.js. Modules always wait for the HTML to load first. -->
+<script type="module" src="js/reviews.js"></script>
 </head>
 <body>
 
@@ -36,35 +36,18 @@
   </div>
 
   <!-- FILTERS
-       Each <select> value must match the data- attributes on the cards below.
-       Without JavaScript, the filters do nothing and every review still shows. -->
+       The cuisine and neighborhood options are added by reviews.js from the lists in js/data.js. -->
   <form class="filters" id="filters" aria-label="Filter and sort reviews">
     <div class="filter">
       <label for="f-cuisine">Cuisine</label>
       <select id="f-cuisine" name="cuisine">
         <option value="all">All cuisines</option>
-        <option value="tacos">Tacos</option>
-        <option value="burgers">Burgers</option>
-        <option value="pizza">Pizza</option>
-        <option value="bbq">BBQ</option>
-        <option value="pasta">Pasta</option>
-        <option value="noodles">Noodles</option>
-        <option value="fried-chicken">Fried chicken</option>
-        <option value="other">Other</option>
       </select>
     </div>
     <div class="filter">
       <label for="f-hood">Neighborhood</label>
       <select id="f-hood" name="hood">
         <option value="all">All neighborhoods</option>
-        <option value="downtown">Downtown</option>
-        <option value="southside">Southside</option>
-        <option value="north-shore">North Shore</option>
-        <option value="st-elmo">St. Elmo</option>
-        <option value="red-bank-hixson">Red Bank / Hixson</option>
-        <option value="signal-mountain">Signal Mountain</option>
-        <option value="brainerd-hamilton-place">Brainerd / Hamilton Place</option>
-        <option value="east-ridge">East Ridge</option>
       </select>
     </div>
     <div class="filter">
@@ -80,100 +63,32 @@
   </form>
 
   <!-- aria-live: screen readers announce the new count when filters change -->
-  <p class="result-count" id="result-count" aria-live="polite">Showing all reviews</p>
+  <p class="result-count" id="result-count" aria-live="polite">Loading reviews…</p>
 
-  <!-- REVIEW CARDS
-       Each card carries its data in attributes the script reads:
-         data-cuisine / data-hood  -> must match a filter option value
-         data-score                -> the overall score
-         data-date                 -> visit date, YYYY-MM-DD (sorts correctly as text)
-         data-name                 -> name used for A to Z sorting
-       FIXME: sample cards, replace with real reviews. -->
-  <ul class="review-grid" id="review-grid">
-    <li class="review-card" data-cuisine="tacos" data-hood="southside" data-score="7.1" data-date="2026-09-28" data-name="Restaurant A">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Tacos · Southside</p>
-        <div class="card-title"><h3><a href="#">[Restaurant A]</a></h3><div class="score score-sm">7.1</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-09-28">Sep 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="burgers" data-hood="north-shore" data-score="5.0" data-date="2026-09-14" data-name="Restaurant B">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Burgers · North Shore</p>
-        <div class="card-title"><h3><a href="#">[Restaurant B]</a></h3><div class="score score-sm">5.0</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-09-14">Sep 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="pizza" data-hood="downtown" data-score="8.2" data-date="2026-10-02" data-name="Restaurant C">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Pizza · Downtown</p>
-        <div class="card-title"><h3><a href="#">[Restaurant C]</a></h3><div class="score score-sm high">8.2</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-10-02">Oct 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="bbq" data-hood="red-bank-hixson" data-score="6.4" data-date="2026-08-30" data-name="Restaurant D">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">BBQ · Red Bank / Hixson</p>
-        <div class="card-title"><h3><a href="#">[Restaurant D]</a></h3><div class="score score-sm">6.4</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-08-30">Aug 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="other" data-hood="downtown" data-score="3.9" data-date="2026-09-21" data-name="Restaurant E">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Other · Downtown</p>
-        <div class="card-title"><h3><a href="#">[Restaurant E]</a></h3><div class="score score-sm">3.9</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-09-21">Sep 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="tacos" data-hood="east-ridge" data-score="4.6" data-date="2026-08-15" data-name="Restaurant F">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Tacos · East Ridge</p>
-        <div class="card-title"><h3><a href="#">[Restaurant F]</a></h3><div class="score score-sm">4.6</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-08-15">Aug 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="pasta" data-hood="st-elmo" data-score="7.8" data-date="2026-07-30" data-name="Restaurant G">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Pasta · St. Elmo</p>
-        <div class="card-title"><h3><a href="#">[Restaurant G]</a></h3><div class="score score-sm">7.8</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-07-30">Jul 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="noodles" data-hood="brainerd-hamilton-place" data-score="5.7" data-date="2026-09-05" data-name="Restaurant H">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Noodles · Brainerd / Hamilton Place</p>
-        <div class="card-title"><h3><a href="#">[Restaurant H]</a></h3><div class="score score-sm">5.7</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-09-05">Sep 2026</time></p>
-      </div>
-    </li>
-    <li class="review-card" data-cuisine="fried-chicken" data-hood="signal-mountain" data-score="6.9" data-date="2026-10-06" data-name="Restaurant I">
-      <a href="#" class="photo">[Photo]</a>
-      <div class="review-card-body">
-        <p class="kicker muted">Fried chicken · Signal Mountain</p>
-        <div class="card-title"><h3><a href="#">[Restaurant I]</a></h3><div class="score score-sm">6.9</div></div>
-        <p class="review-blurb">[One-line verdict.]</p>
-        <p class="card-date"><time datetime="2026-10-06">Oct 2026</time></p>
-      </div>
-    </li>
-  </ul>
+
+  <!-- Browsers block module scripts on pages opened by double-clicking (file://).
+       This small regular script still runs there, and explains what to do. -->
+  <p class="empty" id="file-warning" hidden>This page needs a local server to load reviews. See "Running it locally" in README.md.</p>
+  <script>
+    if (location.protocol === 'file:') document.getElementById('file-warning').hidden = false;
+  </script>
+
+  <!-- Cards are drawn here by reviews.js from data/reviews.json -->
+  <ul class="review-grid" id="review-grid"></ul>
 
   <p class="empty" id="empty" hidden>No reviews match those filters yet. Try another cuisine or neighborhood.</p>
+
+  <template id="card-template">
+    <li class="review-card">
+      <a class="photo">[Photo]</a>
+      <div class="review-card-body">
+        <p class="kicker muted card-kicker"></p>
+        <div class="card-title"><h3><a class="card-name"></a></h3><div class="score score-sm"></div></div>
+        <p class="review-blurb"></p>
+        <p class="card-date"><time></time></p>
+      </div>
+    </li>
+  </template>
 
 </main>
 

@@ -30,7 +30,7 @@ a:hover { color: var(--accent); }
 .wrap { max-width: 1240px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
 
 /* Reusable text styles */
-.display { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1; margin: 0; overflow-wrap: break-word; }   /* long names wrap instead of overflowing */
+.display { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1; margin: 0; overflow-wrap: anywhere; min-width: 0; }   /* a long word wraps instead of pushing past the screen edge */
 .kicker  { font-family: var(--mono); font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px; }
 .lede    { font-size: 21px; line-height: 1.5; margin: 0; }
 .accent  { color: var(--accent); }
@@ -98,6 +98,7 @@ a:hover { color: var(--accent); }
 
 .card { flex: 1 1 340px; max-width: 440px; align-self: flex-start; border: 2px solid var(--ink); background: var(--white); }
 .photo { aspect-ratio: 16 / 10; background: #D9D5CC; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 14px; color: var(--rule); text-transform: uppercase; letter-spacing: 0.08em; }
+.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }   /* real photos fill the box and crop instead of stretching */
 .card-body { padding: 24px; }
 .card-title { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-top: 8px; }
 .card-title h3 { margin: 0; font-size: 30px; line-height: 1.1; }

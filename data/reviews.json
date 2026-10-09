@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "slug": "sample-restaurant-a",
+    "name": "Sample Restaurant A",
+    "cuisine": "tacos",
+    "hood": "southside",
+    "scores": { "food": 8, "service": 7, "value": 6, "atmosphere": 6 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-09-28",
+    "status": "published"
+  },
+  {
+    "id": 2,
+    "slug": "sample-restaurant-b",
+    "name": "Sample Restaurant B",
+    "cuisine": "burgers",
+    "hood": "north-shore",
+    "scores": { "food": 5, "service": 5, "value": 5, "atmosphere": 5 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-09-14",
+    "status": "published"
+  },
+  {
+    "id": 3,
+    "slug": "sample-restaurant-c",
+    "name": "Sample Restaurant C",
+    "cuisine": "pizza",
+    "hood": "downtown",
+    "scores": { "food": 9, "service": 8, "value": 7, "atmosphere": 7 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-10-02",
+    "status": "published"
+  },
+  {
+    "id": 4,
+    "slug": "sample-restaurant-d",
+    "name": "Sample Restaurant D",
+    "cuisine": "bbq",
+    "hood": "red-bank-hixson",
+    "scores": { "food": 7, "service": 6, "value": 5, "atmosphere": 7 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-08-30",
+    "status": "published"
+  },
+  {
+    "id": 5,
+    "slug": "sample-restaurant-e",
+    "name": "Sample Restaurant E",
+    "cuisine": "other",
+    "hood": "downtown",
+    "scores": { "food": 3, "service": 4, "value": 4, "atmosphere": 6 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 2,
+    "paid": 0,
+    "visitDate": "2026-09-21",
+    "status": "published"
+  },
+  {
+    "id": 6,
+    "slug": "sample-restaurant-f",
+    "name": "Sample Restaurant F",
+    "cuisine": "tacos",
+    "hood": "east-ridge",
+    "scores": { "food": 4, "service": 5, "value": 5, "atmosphere": 5 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 2,
+    "paid": 0,
+    "visitDate": "2026-08-15",
+    "status": "published"
+  },
+  {
+    "id": 7,
+    "slug": "sample-restaurant-g",
+    "name": "Sample Restaurant G",
+    "cuisine": "pasta",
+    "hood": "st-elmo",
+    "scores": { "food": 8, "service": 8, "value": 7, "atmosphere": 8 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-07-30",
+    "status": "published"
+  },
+  {
+    "id": 8,
+    "slug": "sample-restaurant-h",
+    "name": "Sample Restaurant H",
+    "cuisine": "noodles",
+    "hood": "brainerd-hamilton-place",
+    "scores": { "food": 6, "service": 5, "value": 6, "atmosphere": 5 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-09-05",
+    "status": "published"
+  },
+  {
+    "id": 9,
+    "slug": "sample-restaurant-i",
+    "name": "Sample Restaurant I",
+    "cuisine": "fried-chicken",
+    "hood": "signal-mountain",
+    "scores": { "food": 7, "service": 7, "value": 7, "atmosphere": 6 },
+    "verdict": "[One-line verdict.]",
+    "notes": {
+      "food": "[A few sentences on the food.]",
+      "service": "[A few sentences on the service.]",
+      "value": "[A few sentences on the value.]",
+      "atmosphere": "[A few sentences on the atmosphere.]"
+    },
+    "links": { "website": "", "menu": "", "map": "" },
+    "photo": "",
+    "photoAlt": "",
+    "visits": 1,
+    "paid": 0,
+    "visitDate": "2026-10-06",
+    "status": "draft"
+  }
+]
