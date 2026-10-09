@@ -1,0 +1,277 @@
+/* Tab & Tip — shared styles for every page */
+
+/* ---------- Fonts ----------
+   Every font on this site is free for personal AND commercial use, including on the web.
+   All four are under the SIL Open Font License 1.1 and load from Google Fonts (see each page's <head>):
+     Anton          - big headlines
+     Newsreader     - body text
+     IBM Plex Mono  - labels, nav, small caps
+     VT323          - tickets and receipts (a bitmap-style font, like a thermal ticket printer) */
+
+/* ---------- Design tokens: change these to restyle the whole page ---------- */
+:root {
+  --ink: #141414;
+  --paper: #F6F5F1;
+  --white: #FFFFFF;
+  --muted: #5A5650;
+  --rule: #4A4743;
+  --accent: #C8361D;          /* the "critic's red pen" */
+  --display: 'Anton', Impact, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --serif: 'Newsreader', Georgia, serif;
+  --ticket: 'VT323', 'IBM Plex Mono', ui-monospace, monospace;   /* receipts and tickets only */
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); }
+a { color: var(--ink); }
+a:hover { color: var(--accent); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+/* Reusable text styles */
+.display { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1; margin: 0; overflow-wrap: break-word; }   /* long names wrap instead of overflowing */
+.kicker  { font-family: var(--mono); font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 12px; }
+.lede    { font-size: 21px; line-height: 1.5; margin: 0; }
+.accent  { color: var(--accent); }
+
+/* ---------- Nav ---------- */
+.site-header { border-bottom: 2px solid var(--ink); }
+.nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 18px; padding-bottom: 18px; }
+.logo { font-family: var(--display); font-size: 34px; letter-spacing: 0.02em; text-decoration: none; line-height: 1; }
+.nav-links { display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: var(--mono); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
+.nav-links a { text-decoration: none; padding: 12px 0; }
+.nav-links a[aria-current="page"] { border-bottom: 3px solid var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 80px; padding-bottom: 72px; }
+.hero-text { flex: 999 1 560px; min-width: 0; }
+.hero h1 { font-size: clamp(56px, 8.5vw, 124px); line-height: 0.92; }
+.hero .lede { font-size: 23px; margin-top: 32px; max-width: 40ch; }
+
+.receipt {
+  flex: 1 1 320px; max-width: 400px; margin: 0;
+  background: var(--white); padding: 32px 28px 36px;
+  font-family: var(--ticket); font-size: 23px; line-height: 1.3;
+  box-shadow: 0 1px 0 var(--ink), 0 18px 40px -24px rgba(20,20,20,0.45);
+  transform: rotate(1.5deg);
+}
+.receipt .center { text-align: center; }
+.receipt .small { font-size: 20px; color: var(--muted); }
+.receipt hr { border: 0; border-top: 2px dashed var(--ink); margin: 18px 0; }
+.line { display: flex; justify-content: space-between; gap: 12px; }
+.line.total { font-size: 28px; }   /* VT323 has no bold, so the total stands out by size instead */
+
+/* ---------- House rules ---------- */
+.dark { background: var(--ink); color: var(--paper); }
+.section { padding-top: 88px; padding-bottom: 88px; }
+.section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 48px; }
+.h2 { font-size: clamp(44px, 6vw, 80px); }
+.rules { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); border-top: 1px solid var(--rule); }
+.rules li { display: flex; gap: 20px; padding: 32px 28px 36px 0; border-bottom: 1px solid var(--rule); }
+.rules .num { font-family: var(--display); font-size: 48px; line-height: 1; color: var(--accent); }
+.rules h3 { margin: 0 0 8px; font-size: 26px; font-weight: 600; }
+.rules p { margin: 0; font-size: 19px; line-height: 1.5; color: #D6D2C9; }
+
+/* ---------- Scale ---------- */
+.scale-head { display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-end; margin-bottom: 44px; }
+.scale-head h2 { flex: 1 1 420px; }
+.scale-head p { flex: 1 1 360px; }
+.scale { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 104px), 1fr)); border: 2px solid var(--ink); }
+.scale li { padding: 22px 18px 26px; min-height: 210px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.scale .n { font-family: var(--display); font-size: 56px; line-height: 1; }
+.scale .label { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 14px; }
+.scale .desc { font-size: 16px; line-height: 1.4; margin-top: 6px; }
+.scale .mid  { background: var(--ink); color: var(--paper); }      /* 5 = the honest middle */
+.scale .high { background: var(--accent); color: var(--white); }   /* 8-10 = earned */
+
+/* ---------- How a score is built ---------- */
+.scoring { display: flex; flex-wrap: wrap; gap: 56px; padding-top: 72px; padding-bottom: 96px; }
+.scoring-text { flex: 999 1 520px; min-width: 0; }
+.weights { display: flex; flex-direction: column; gap: 24px; margin-top: 36px; }
+.weight-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.weight-top span:first-child { font-size: 24px; font-weight: 600; }
+.weight-top span:last-child { font-family: var(--mono); font-size: 18px; font-weight: 600; }
+.bar { height: 14px; background: #E2DFD8; }
+.bar div { height: 100%; background: var(--accent); }
+.weights p { margin: 8px 0 0; font-size: 17px; line-height: 1.45; color: var(--rule); }
+
+.card { flex: 1 1 340px; max-width: 440px; align-self: flex-start; border: 2px solid var(--ink); background: var(--white); }
+.photo { aspect-ratio: 16 / 10; background: #D9D5CC; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 14px; color: var(--rule); text-transform: uppercase; letter-spacing: 0.08em; }
+.card-body { padding: 24px; }
+.card-title { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-top: 8px; }
+.card-title h3 { margin: 0; font-size: 30px; line-height: 1.1; }
+.score { flex: none; width: 72px; height: 72px; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+/* The restaurant's ticket: the score breakdown, printed like a ticket */
+.ticket { margin: 20px 0 0; padding: 16px 0 4px; border-top: 2px dashed var(--ink); border-bottom: 2px dashed var(--ink); font-family: var(--ticket); font-size: 23px; line-height: 1.25; }
+.ticket-head { text-align: center; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px; padding: 0 44px; }   /* side padding keeps it clear of the flip button */
+.breakdown { margin: 0; }
+.breakdown div { display: flex; align-items: baseline; gap: 8px; padding: 3px 0; }
+.breakdown dt { flex: 1; display: flex; gap: 8px; }
+.breakdown dt::after { content: ""; flex: 1; border-bottom: 2px dotted var(--muted); transform: translateY(-5px); }   /* dotted leader */
+.breakdown dd { margin: 0; }
+.ticket-total { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 8px; border-top: 4px double var(--ink); font-size: 28px; text-transform: uppercase; }
+
+/* The back of the check: same ticket look, one short note per category */
+.check-notes { display: flex; flex-direction: column; gap: 14px; }
+.note-title { display: flex; justify-content: space-between; text-transform: uppercase; border-bottom: 2px dotted var(--muted); padding-bottom: 2px; margin-bottom: 4px; }
+.note p { margin: 0; font-size: 21px; line-height: 1.25; }
+
+/* ---------- Flipping ticket (Standards page) ----------
+   Both faces sit in the same grid cell, so the card is as tall as the taller face.
+   Checking the hidden box rotates .flip-inner 180deg; backface-visibility hides
+   whichever face is turned away. */
+.flip { margin-top: 20px; perspective: 1400px; }
+.flip-toggle { position: absolute; opacity: 0; width: 1px; height: 1px; }   /* hidden but still keyboard-focusable */
+.flip-inner { display: grid; transition: transform 0.6s ease; transform-style: preserve-3d; }
+.flip-toggle:checked ~ .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  grid-area: 1 / 1; position: relative; margin: 0; padding-bottom: 14px;
+  background: var(--white);
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;   /* Safari needs the -webkit- version */
+}
+.flip-back { transform: rotateY(180deg); }
+.flip-btn {
+  position: absolute; top: 6px; right: 0;
+  width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  color: var(--ink); cursor: pointer; border-radius: 50%;
+}
+.flip-btn:hover { color: var(--accent); }
+.flip-toggle:focus-visible ~ .flip-inner .flip-btn { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
+.verdict { margin: 18px 0 0; font-size: 18px; line-height: 1.45; font-style: italic; }
+.card-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 18px; font-family: var(--mono); font-size: 14px; }
+.card-meta { margin: 14px 0 0; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* ---------- Insider / conflicts ---------- */
+.bordered { background: var(--white); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 56px; }
+.two-col h2 { font-size: clamp(36px, 4vw, 52px); line-height: 1.05; margin-bottom: 20px; }
+.two-col p:last-child { margin: 0; font-size: 20px; line-height: 1.55; }
+
+/* ---------- Right of reply ---------- */
+.reply { display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center; padding-top: 96px; padding-bottom: 96px; }
+.reply > div { flex: 999 1 520px; min-width: 0; }
+.reply h2 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 16px; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 32px; background: var(--accent); color: var(--white); text-decoration: none; font-family: var(--mono); font-size: 16px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.button:hover { background: var(--ink); color: var(--white); }
+
+/* ---------- Footer ---------- */
+.footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; padding-top: 48px; padding-bottom: 48px; }
+.footer .logo { font-size: 28px; color: var(--paper); }
+.footer small { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #BDB8AE; }
+
+/* ======================================================================
+   HOMEPAGE
+   ====================================================================== */
+.muted { color: var(--muted); }
+a.photo { text-decoration: none; }
+
+/* Homepage hero reuses .hero and .receipt from the Standards page */
+.hero-link { display: inline-block; margin-top: 24px; }
+
+/* Section heading row with a "see all" link on the right */
+.home-section { padding-top: 88px; padding-bottom: 88px; }
+.section-title { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px; }
+.more-link { font-family: var(--mono); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 0; }
+
+/* Review cards: as many columns as fit, at least 300px wide each */
+.review-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 32px; }
+.review-card { border: 2px solid var(--ink); background: var(--white); display: flex; flex-direction: column; }
+.review-card-body { padding: 20px; }
+.review-card .kicker { font-size: 12px; margin: 0; }
+.review-card .card-title h3 { font-size: 26px; }
+.review-card .card-title a { text-decoration: none; }
+.review-blurb { margin: 12px 0 0; font-size: 18px; line-height: 1.45; }
+
+/* Score boxes follow the scale colors: black by default, red for 8 and up */
+.score-sm { width: 56px; height: 56px; font-size: 30px; }
+.score.high { background: var(--accent); color: var(--white); }
+
+/* Browse tiles (cuisines and neighborhoods) */
+.tile-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 720px) { .tile-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; } }   /* 8 tiles = two even rows of 4 */
+.tile { display: flex; flex-direction: column; gap: 8px; min-height: 120px; justify-content: space-between; padding: 20px; border: 2px solid var(--ink); text-decoration: none; background: var(--paper); }
+.tile:hover { background: var(--ink); color: var(--paper); }
+.tile-name { font-family: var(--display); font-size: clamp(24px, 3vw, 32px); text-transform: uppercase; line-height: 1; }
+.tile-count { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+.tile-dark { background: transparent; color: var(--paper); border-color: var(--paper); }   /* tiles on the black section */
+.tile-dark:hover { background: var(--paper); color: var(--ink); }
+.card-date { margin: 10px 0 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+/* ======================================================================
+   ALL REVIEWS PAGE
+   ====================================================================== */
+.page-main { padding-bottom: 96px; }
+.page-head { padding-top: 64px; padding-bottom: 32px; }
+.page-head h1 { font-size: clamp(56px, 8vw, 112px); }
+.page-head .lede { margin-top: 16px; max-width: 46ch; }
+
+/* Filter bar: three dropdowns + reset; wraps to a stack on phones */
+.filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 20px; padding: 24px 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+.filter { display: flex; flex-direction: column; gap: 6px; flex: 1 1 200px; }
+.filter label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.filter select {
+  appearance: none; -webkit-appearance: none;   /* drop the browser's default look so it matches everywhere */
+  min-height: 48px; padding: 0 40px 0 14px;
+  font-family: var(--mono); font-size: 16px;      /* 16px stops iPhone Safari from zooming in on tap */
+  color: var(--ink); background-color: var(--white); border: 2px solid var(--ink); border-radius: 0;
+  /* hand-drawn down arrow so we don't depend on the browser's */
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px; background-repeat: no-repeat;
+}
+.filter select:focus-visible, .reset:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.reset { min-height: 48px; padding: 0 20px; font-family: var(--mono); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--ink); border: 2px solid var(--ink); cursor: pointer; }
+.reset:hover { background: var(--ink); color: var(--paper); }
+.result-count { margin: 20px 0 28px; font-family: var(--mono); font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+.empty { padding: 48px 0; font-size: 21px; }
+.review-card[hidden] { display: none; }   /* make sure hidden cards leave the grid */
+
+/* ======================================================================
+   ANIMATION
+   All CSS, no JavaScript. Everything turns off for visitors who set
+   "reduce motion" in their system settings (bottom of this section).
+   ====================================================================== */
+
+/* 1. Tickets print out on page load.
+      clip-path reveals the ticket top to bottom while translate feeds it down.
+      steps(16) makes it jump line by line like a real ticket printer instead
+      of sliding smoothly. The negative insets leave room for the drop shadow. */
+@keyframes print-out {
+  from { clip-path: inset(-40px -40px 100% -40px); translate: 0 -24px; }
+  to   { clip-path: inset(-40px -40px -40px -40px); translate: 0 0; }
+}
+.receipt {
+  animation: print-out 1.6s steps(16, end) 0.3s both;
+}
+
+/* 2. Score boxes get stamped as they scroll into view.
+      Scroll-driven animation (animation-timeline: view()) is newer: Chrome,
+      Edge and recent Safari support it. Older browsers skip this block and
+      just show the score, so nothing breaks. */
+@keyframes stamp {
+  0%   { transform: scale(1.8) rotate(-14deg); opacity: 0; }
+  70%  { transform: scale(0.94) rotate(-4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-4deg); opacity: 1; }
+}
+@supports (animation-timeline: view()) {
+  .review-card .score {
+    animation: stamp linear both;
+    animation-timeline: view();
+    animation-range: entry 30% entry 90%;
+  }
+}
+
+/* 3. Review cards lift off the page on hover (mouse and trackpad only,
+      so phones don't get stuck in a hover state after a tap). */
+@media (hover: hover) {
+  .review-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .review-card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--ink); }
+}
+
+/* Reduced motion: show everything in its final state, no movement. */
+@media (prefers-reduced-motion: reduce) {
+  .receipt, .review-card .score { animation: none !important; }
+  .review-card { transition: none; }
+}

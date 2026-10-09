@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tab &amp; Tip — Honest Restaurant Reviews in Chattanooga</title>
+<meta name="description" content="Independent restaurant reviews in Chattanooga, TN. Every meal paid for, every visit unannounced, and the whole 1 to 10 scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a href="index.html" class="logo" aria-current="page">TAB <span class="accent">&amp;</span> TIP</a>
+    <div class="nav-links">
+      <a href="reviews.html">Reviews</a>
+      <a href="#categories">Cuisines</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="our-standards.html">Our Standards</a>
+      <a href="#">About</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <!-- FIXME: placeholder headline and intro, rewrite in your own voice -->
+  <section class="wrap hero">
+    <div class="hero-text">
+      <p class="kicker muted">Independent restaurant reviews · Chattanooga, TN</p>
+      <h1 class="display">Honest reviews.<br><span class="accent">Every meal paid for.</span></h1>
+      <p class="lede">Two people with four decades in restaurants and bars, reviewing Chattanooga one meal at a time. No comps, no sponsors, and the whole 1 to 10 scale.</p>
+      <a href="our-standards.html" class="more-link hero-link">How we review →</a>
+    </div>
+
+    <!-- FIXME: update the counts as you publish -->
+    <figure class="receipt" aria-label="Tab &amp; Tip running totals, printed as a ticket">
+      <div class="center" style="letter-spacing: 0.12em">TAB &amp; TIP</div>
+      <div class="center small">Chattanooga, TN</div>
+      <hr>
+      <div class="line small"><span>Running total</span><span>Party of 2</span></div>
+      <hr>
+      <div class="line"><span>Restaurants reviewed</span><span>[0]</span></div>
+      <div class="line"><span>Meals paid for</span><span>[0]</span></div>
+      <div class="line"><span>Second visits</span><span>[0]</span></div>
+      <div class="line"><span>Comps accepted</span><span>0</span></div>
+      <hr>
+      <div class="line total"><span>From restaurants</span><span>$0.00</span></div>
+      <div class="center small" style="margin-top: 22px">Paid in full</div>
+    </figure>
+  </section>
+
+  <!-- CATEGORIES: the main way to browse. Each tile opens the reviews page pre-filtered. -->
+  <section class="dark">
+    <div class="wrap home-section" id="categories">
+      <div class="section-title">
+        <h2 class="display h2" id="categories-title">What are you hungry for?</h2>
+      </div>
+      <!-- FIXME: adjust to the categories you'll actually review; the ?cuisine= value must match reviews.html -->
+      <ul class="tile-grid" aria-labelledby="categories-title">
+        <li><a href="reviews.html?cuisine=tacos" class="tile tile-dark"><span class="tile-name">Tacos</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=burgers" class="tile tile-dark"><span class="tile-name">Burgers</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=pizza" class="tile tile-dark"><span class="tile-name">Pizza</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=bbq" class="tile tile-dark"><span class="tile-name">BBQ</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=pasta" class="tile tile-dark"><span class="tile-name">Pasta</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=sushi" class="tile tile-dark"><span class="tile-name">Sushi</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=noodles" class="tile tile-dark"><span class="tile-name">Noodles</span><span class="tile-count">[0] reviews</span></a></li>
+        <li><a href="reviews.html?cuisine=fried-chicken" class="tile tile-dark"><span class="tile-name">Fried chicken</span><span class="tile-count">[0] reviews</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="wrap home-section" id="neighborhoods" aria-labelledby="hoods-title">
+    <div class="section-title">
+      <h2 class="display h2" id="hoods-title">Or by neighborhood</h2>
+    </div>
+    <!-- FIXME: the ?hood= value must match reviews.html -->
+    <ul class="tile-grid">
+      <li><a href="reviews.html?hood=downtown" class="tile"><span class="tile-name">Downtown</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=southside" class="tile"><span class="tile-name">Southside</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=north-shore" class="tile"><span class="tile-name">North Shore</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=st-elmo" class="tile"><span class="tile-name">St. Elmo</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=highland-park" class="tile"><span class="tile-name">Highland Park</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=red-bank" class="tile"><span class="tile-name">Red Bank</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=hixson" class="tile"><span class="tile-name">Hixson</span><span class="tile-count">[0] reviews</span></a></li>
+      <li><a href="reviews.html?hood=east-ridge" class="tile"><span class="tile-name">East Ridge</span><span class="tile-count">[0] reviews</span></a></li>
+    </ul>
+  </section>
+
+  <!-- RECENT REVIEWS (bottom of the page) -->
+  <section class="bordered" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap home-section">
+      <div class="section-title">
+        <h2 class="display h2" id="reviews-title">Recent reviews</h2>
+        <a href="reviews.html" class="more-link">All reviews →</a>
+      </div>
+      <!-- FIXME: your three newest reviews -->
+      <ul class="review-grid">
+        <li class="review-card">
+          <a href="#" class="photo">[Photo]</a>
+          <div class="review-card-body">
+            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
+            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm">6.4</div></div>
+            <p class="review-blurb">[One-line verdict.]</p>
+          </div>
+        </li>
+        <li class="review-card">
+          <a href="#" class="photo">[Photo]</a>
+          <div class="review-card-body">
+            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
+            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm high">8.2</div></div>
+            <p class="review-blurb">[One-line verdict.]</p>
+          </div>
+        </li>
+        <li class="review-card">
+          <a href="#" class="photo">[Photo]</a>
+          <div class="review-card-body">
+            <p class="kicker muted">[Cuisine] · [Neighborhood]</p>
+            <div class="card-title"><h3><a href="#">[Restaurant name]</a></h3><div class="score score-sm">3.9</div></div>
+            <p class="review-blurb">[One-line verdict.]</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="dark">
+  <div class="wrap footer">
+    <span class="logo">TAB <span class="accent">&amp;</span> TIP</span>
+    <small>Honest reviews · Chattanooga, TN · Every meal paid for</small>
+  </div>
+</footer>
+
+</body>
+</html>
