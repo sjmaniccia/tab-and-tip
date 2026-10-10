@@ -59,7 +59,7 @@ The overall score is **not** stored. It's calculated from the four category scor
 ## Roadmap
 
 1. ~~Move reviews out of the HTML into `reviews.json`~~ ✓
-2. Database: Cloudflare D1
+2. ~~Database: Cloudflare D1~~ ✓
 3. API: Cloudflare Pages Functions (`/api/reviews`)
 4. Login: hashed passwords, secure session cookies, rate limiting
 5. Critics' portal: dashboard, review editor, draft / publish, photo upload

@@ -1,0 +1,19 @@
+{
+  // The Cloudflare Pages project. The live site will be tab-and-tip.pages.dev
+  "name": "tab-and-tip",
+
+  // Only this folder is served to the public
+  "pages_build_output_dir": "./public",
+
+  // Locks in how Cloudflare's runtime behaves, so future updates can't break the site
+  "compatibility_date": "2026-10-01",
+
+  // The database. Code reaches it as env.DB
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tnt-db",
+      "database_id": "415d83e9-1da6-45b8-8b61-bac3ca8383d6"
+    }
+  ]
+}

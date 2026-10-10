@@ -1,0 +1,11 @@
+# installed tools (recreated with "npm install")
+node_modules/
+
+# Wrangler's local database and cache
+.wrangler/
+
+# local secrets, never commit these
+.dev.vars
+
+# Mac junk
+.DS_Store

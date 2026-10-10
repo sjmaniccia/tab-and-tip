@@ -1,0 +1,28 @@
+{
+  "name": "tab-and-tip",
+  "version": "1.0.0",
+  "description": "Independent restaurant reviews in Chattanooga, TN. Every meal paid for, every visit unannounced, scored on the full 1 to 10 scale.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjmaniccia/tab-and-tip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sjmaniccia/tab-and-tip/issues"
+  },
+  "homepage": "https://github.com/sjmaniccia/tab-and-tip#readme",
+  "devDependencies": {
+    "wrangler": "^4.149.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261006.1": true
+  }
+}
