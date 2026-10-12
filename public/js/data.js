@@ -75,9 +75,9 @@ export function formatMonth(isoDate) {
 // ADD the calculated overall score to each one
 //
 // "async" lets us "await" the download instead of freezing the page while it happens.
-// In phase 3 the only line that changes is the fetch address: 'data/reviews.json' -> '/api/reviews'.
+// Reviews come from our API (functions/api/reviews/index.js), which reads the database.
 export async function loadReviews() {
-  const response = await fetch('data/reviews.json');
+  const response = await fetch('/api/reviews');
   if (!response.ok) {
     throw new Error('Could not load reviews (HTTP ' + response.status + ')');
   }
