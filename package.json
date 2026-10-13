@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "tab-and-tip",
   "version": "1.0.0",
   "description": "Independent restaurant reviews in Chattanooga, TN. Every meal paid for, every visit unannounced, scored on the full 1 to 10 scale.",
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/sjmaniccia/tab-and-tip/issues"
   },
